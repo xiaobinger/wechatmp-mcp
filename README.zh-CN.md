@@ -12,6 +12,9 @@
   同一个字段，所以每条描述里先放英文段、再放中文段；参数描述用更短的
   `english / 中文` 形式。服务端说明（instructions）和 `server.json` 同理，这样上架
   时中英文介绍都在。
+- **`server.json` 必须压进 100 字符。** 注册表 schema 把那条 `description` 限死在
+  100 字符，所以上架那一行是一句 90 字符的双语短句；详细说明放在工具描述和服务端
+  instructions 里，不放在注册表条目里。
 - 登录态存在 Playwright 的持久化 profile 里。服务端从不读取、导出或打印 cookie、
   localStorage 或可用的 token。
 
@@ -73,6 +76,11 @@ cd wechatmp-mcp
 python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -e .
 ```
+
+发行包名是 `wechatmp-publish-mcp`（PyPI 上的名字），而代码、命令行入口和 MCP server
+名仍然是 `wxmp` / `wechatmp-mcp`。包里有两个入口脚本指向同一个函数——`wxmp` 和
+`wechatmp-publish-mcp`——这样包上到 PyPI 之后 `uvx wechatmp-publish-mcp` 就能启动服务，
+`server.json` 里的 identifier 也才能和发行包名对上。
 
 ## 第一次运行：登录一次
 
@@ -248,9 +256,10 @@ wxmp --transport http --host 127.0.0.1 --port 8790 --path /mcp --token <secret>
 ## 测试
 
 ```powershell
-python tests/selftest.py    # 108 条离线检查：协议、注册表、参数校验、
+python tests/selftest.py    # 121 条离线检查：协议、注册表、参数校验、
                             # 确认闸门、打码、URL 构造、流程辅助函数、
-                            # 发布动作、发表记录解析、中英对照契约、图文分段规则
+                            # 发布动作、发表记录解析、中英对照契约、
+                            # 给调用方的限制文案、图文分段规则
 python tests/ci_smoke.py    # 15 条，含真实 stdio 子进程握手
 ```
 

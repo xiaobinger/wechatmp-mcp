@@ -1,9 +1,9 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json",
   "name": "io.github.xiaobinger/wechatmp-mcp",
-  "description": "Drive the WeChat Official Account console from MCP: create a 贴图 image message or a 图文 article from a title, a cover, the body and inline images, then keep it as a draft or publish it straight from the editor after an explicit confirmation and the admin QR scan — and prove the publish against 发表记录.\n公众号后台 MCP：用标题、封面、正文（可含插图）创建贴图或图文，直接存草稿或在编辑器里发表（需显式确认与管理员扫码），并用发表记录证明它真的发出去了。",
+  "description": "Create 贴图/图文 in the WeChat Official Account console; save or publish. 公众号后台：建贴图/图文，存草稿或发表。",
   "status": "active",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "repository": {
     "url": "https://github.com/xiaobinger/wechatmp-mcp",
     "source": "github"
@@ -11,10 +11,10 @@
   "packages": [
     {
       "registryType": "pypi",
-      "identifier": "wechatmp-mcp",
-      "version": "0.1.0",
+      "identifier": "wechatmp-publish-mcp",
+      "version": "0.1.1",
       "transport": { "type": "stdio" },
-      "runtimeHint": "python -m wxmp --transport stdio",
+      "runtimeHint": "uvx",
       "environmentVariables": [
         {
           "name": "WXMP_PROFILE_DIR",

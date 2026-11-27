@@ -16,6 +16,10 @@ for every irreversible step.
   followed by a Chinese block; argument descriptions use the shorter
   `english / Chinese` form. The same applies to the server instructions and to
   `server.json`, so a marketplace listing shows both languages.
+- **`server.json` fits in 100 characters.** The registry schema caps that
+  `description` at 100 characters, so the listing line is one terse bilingual
+  sentence (90 characters) and the detail lives in the tool descriptions and the
+  server instructions, not in the registry entry.
 - The login session lives inside a persistent Playwright profile. The server never
   reads, exports or logs a cookie, a storage entry or a usable token.
 
@@ -86,6 +90,12 @@ cd wechatmp-mcp
 python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -e .
 ```
+
+The distribution name is `wechatmp-publish-mcp` (the PyPI name) while the code,
+the console scripts and the MCP server name stay `wxmp` / `wechatmp-mcp`. Two
+console scripts point at the same entry point — `wxmp` and
+`wechatmp-publish-mcp` — so `uvx wechatmp-publish-mcp` starts the server once the
+package is on PyPI, and `server.json` can name that same identifier.
 
 ## First run: log in once
 
@@ -288,10 +298,11 @@ JSON-RPC requests, notifications and batches.
 ## Tests
 
 ```powershell
-python tests/selftest.py    # 108 offline checks: protocol, registry, validation,
+python tests/selftest.py    # 121 offline checks: protocol, registry, validation,
                             # confirmation gates, masking, URL building, helpers,
                             # publish actions, publish-record parsing, the
-                            # bilingual tool-text contract, the 图文 block rules
+                            # bilingual tool-text contract, the caller-facing
+                            # limit text, the 图文 block rules
 python tests/ci_smoke.py    # 15 checks including a real stdio subprocess handshake
 ```
 

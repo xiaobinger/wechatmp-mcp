@@ -10,7 +10,7 @@ asynchronously, so a publish is only reported as verified once a new msgid shows
 up in 发表记录.
 """
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 SERVER_NAME = "wechatmp-mcp"
 
 __all__ = ["__version__", "SERVER_NAME"]

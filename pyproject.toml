@@ -3,8 +3,8 @@ requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "wechatmp-mcp"
-version = "0.1.0"
+name = "wechatmp-publish-mcp"
+version = "0.1.1"
 description = "MCP server for the WeChat Official Account console: 贴图 image messages, drafts, publish / scheduled publish. 公众号后台 MCP：贴图、草稿、发布与定时发布"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -46,6 +46,9 @@ Issues = "https://github.com/xiaobinger/wechatmp-mcp/issues"
 
 [project.scripts]
 wxmp = "wxmp.cli:main"
+# Same entry point under the distribution name, because a PyPI package run with
+# `uvx <distribution>` executes the script that carries the distribution's name.
+wechatmp-publish-mcp = "wxmp.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
