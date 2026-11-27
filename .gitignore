@@ -1,0 +1,53 @@
+# ---------------------------------------------------------------------------
+# wechatmp-mcp
+# Source, docs and the two test scripts are tracked; everything below is a
+# local artefact. .state/ holds the Playwright login profile — never commit it.
+# ---------------------------------------------------------------------------
+
+# Python bytecode & caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Build / distribution
+build/
+dist/
+*.egg-info/
+.eggs/
+*.whl
+*.tar.gz
+
+# Browser session: cookies for the WeChat console live here
+.state/
+out/
+*.log
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Editors / OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Secrets & local config
+.env
+.env.*
+.pypirc
+*.pem
+*.key
+
+# Scratch
+*.tmp
+*.bak

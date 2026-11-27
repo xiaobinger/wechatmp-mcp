@@ -1,0 +1,10 @@
+{
+  "wxmp": {
+    "command": "python",
+    "args": ["-m", "wxmp", "--transport", "stdio"],
+    "env": {
+      "PYTHONIOENCODING": "utf-8",
+      "PYTHONUTF8": "1"
+    }
+  }
+}

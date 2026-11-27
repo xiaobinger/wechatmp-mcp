@@ -1,0 +1,55 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "wechatmp-mcp"
+version = "0.1.0"
+description = "MCP server for the WeChat Official Account console: 贴图 image messages, drafts, publish / scheduled publish. 公众号后台 MCP：贴图、草稿、发布与定时发布"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "wxmp contributors" }]
+keywords = [
+    "mcp", "model-context-protocol", "mcp-server", "wechat", "weixin",
+    "wechat-official-account", "公众号", "贴图", "image-message", "draft",
+    "playwright", "browser-automation", "json-rpc", "claude-desktop",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Natural Language :: Chinese (Simplified)",
+    "Natural Language :: English",
+    "Typing :: Typed",
+    "Topic :: Internet :: WWW/HTTP :: Browsers",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+    "playwright>=1.40",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7", "build>=1.0", "twine>=4.0"]
+
+[project.urls]
+Homepage = "https://github.com/xiaobinger/wechatmp-mcp"
+Repository = "https://github.com/xiaobinger/wechatmp-mcp"
+Issues = "https://github.com/xiaobinger/wechatmp-mcp/issues"
+
+[project.scripts]
+wxmp = "wxmp.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["wxmp*"]
+
+[tool.setuptools.package-data]
+wxmp = ["py.typed"]
