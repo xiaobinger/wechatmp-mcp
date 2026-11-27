@@ -1,3 +1,4 @@
+<!-- mcp-name: io.github.xiaobinger/wechatmp-mcp -->
 # wechatmp-mcp
 
 An MCP server that drives the **WeChat Official Account back office** from
@@ -20,6 +21,12 @@ for every irreversible step.
   `description` at 100 characters, so the listing line is one terse bilingual
   sentence (90 characters) and the detail lives in the tool descriptions and the
   server instructions, not in the registry entry.
+- **The first line is a registry marker.** `mcp-name: io.github.xiaobinger/wechatmp-mcp`
+  inside an HTML comment is how the MCP registry proves this PyPI package belongs
+  to that server name. It never renders, but removing it makes
+  `mcp-publisher publish` fail with an ownership error, and it only exists on PyPI
+  once a release is uploaded — so a published version that predates the marker can
+  never be fixed in place, only superseded.
 - The login session lives inside a persistent Playwright profile. The server never
   reads, exports or logs a cookie, a storage entry or a usable token.
 

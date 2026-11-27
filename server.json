@@ -3,7 +3,7 @@
   "name": "io.github.xiaobinger/wechatmp-mcp",
   "description": "Create 贴图/图文 in the WeChat Official Account console; save or publish. 公众号后台：建贴图/图文，存草稿或发表。",
   "status": "active",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "repository": {
     "url": "https://github.com/xiaobinger/wechatmp-mcp",
     "source": "github"
@@ -12,7 +12,7 @@
     {
       "registryType": "pypi",
       "identifier": "wechatmp-publish-mcp",
-      "version": "0.1.1",
+      "version": "0.1.2",
       "transport": { "type": "stdio" },
       "runtimeHint": "uvx",
       "environmentVariables": [
